@@ -1,13 +1,20 @@
-import React from "react";
-import Hotel from "../../custom-types/Hotel";
+import React, { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+
+import { getHotels } from "../../api/index";
+
 import HotelItems from "./Hotel-items/hotel-items";
 
-interface Props {
-  hotels: Hotel[];
-}
+const HotelList = () => {
+  const thunkDispatch = useAppDispatch();
+  const hotels = useAppSelector((store) => store.hotels);
+  const loading = useAppSelector((store) => store.loading);
+  const noHotels = !loading && hotels.length === 0;
 
-const HotelList: React.FC<Props> = ({ hotels }) => {
-  const noHotels = hotels.length === 0;
+  useEffect(() => {
+    thunkDispatch(getHotels());
+  }, [thunkDispatch]);
+
   return (
     <div>
       {/* Here we are checking if there are any hotels available and if not we
@@ -16,8 +23,8 @@ const HotelList: React.FC<Props> = ({ hotels }) => {
         <div>No hotels available.</div>
       ) : (
         <div>
-          {hotels.map((hotel) => (
-            <HotelItems key={hotel.id} hotel={hotel} />
+          {hotels.map((hotel, index) => (
+            <HotelItems key={index} hotel={hotel} />
           ))}
         </div>
       )}

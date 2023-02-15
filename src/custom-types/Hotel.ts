@@ -1,4 +1,5 @@
 import { Image, Facility } from "./common";
+import HotelDetails from "./Hotel-Details";
 
 export default interface Hotel {
   id: string;
@@ -20,6 +21,7 @@ export default interface Hotel {
   checkOutHours: string;
   checkOutMinutes: string;
   position?: Position;
+  details?: HotelDetails;
 }
 
 interface Position {

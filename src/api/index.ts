@@ -1,4 +1,5 @@
 import Hotel from "../custom-types/Hotel";
+import { Action, FilterAction } from "../store/actions";
 
 // Make a axios fetch req and create a function
 // that takes in a callback function
@@ -7,15 +8,41 @@ import Hotel from "../custom-types/Hotel";
 // and rejects with an alert if there is an error
 // fetching the data from the server.
 
-export const getHotels = async (callback: (data: Hotel[]) => void) => {
+const fetchHotels = () =>
+  fetch("https://obmng.dbm.guestline.net/api/hotels?collection-id=OBMNG").then(
+    (res) => res.json()
+  );
+
+const fetchDetails = (hotels: Hotel[]) =>
+  Promise.all(
+    hotels.map((hotel) =>
+      fetch(
+        `https://obmng.dbm.guestline.net/api/roomRates/OBMNG/${hotel.id}`
+      ).then((res) => res.json())
+    )
+  );
+
+export const getHotels = () => async (dispatch: (action: Action) => void) => {
   try {
-    const res = await fetch(
-      "https://obmng.dbm.guestline.net/api/hotels?collection-id=OBMNG"
-    );
-    const data = await res.json();
-    console.log("res data", data);
-    return callback(data);
-  } catch (err) {
-    return alert("Server error.");
+    dispatch({ type: "STARTED_LOADING" });
+
+    const data: Hotel[] = await fetchHotels();
+    const details = await fetchDetails(data);
+
+    for (let i = 0; i < data.length; i++) {
+      data[i].details = details[i];
+    }
+
+    dispatch({ type: "HOTELS_LIST", payload: data });
+  } catch {
+    alert("Server error");
   }
 };
+
+export const handleFilterChange =
+  (dispatch: (action: Action) => void) =>
+  (actionType: FilterAction) =>
+  (value: number) => {
+    dispatch({ type: "STARTED_LOADING" });
+    setTimeout(() => dispatch({ type: actionType, payload: value }), 250);
+  };
