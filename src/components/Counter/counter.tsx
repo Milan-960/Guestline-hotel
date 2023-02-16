@@ -24,15 +24,15 @@ const Counter: React.FC<Props> = ({
   return (
     <div>
       <span>{name}</span>
-      {/* // <StyledContainer> */}
-      {/* <StyledIconWrapper>
-          <MinusOutlined onClick={decrement} />
-        </StyledIconWrapper>
-        <StyledValueWrapper>{value}</StyledValueWrapper>
-        <StyledIconWrapper>
-          <PlusOutlined onClick={increment} />
-        </StyledIconWrapper>
-      </StyledContainer> */}
+      <div>
+        <div>
+          <button onClick={increment}> + </button>
+        </div>
+        <div>{value}</div>
+        <div>
+          <button onClick={decrement}> - </button>
+        </div>
+      </div>
     </div>
   );
 };
