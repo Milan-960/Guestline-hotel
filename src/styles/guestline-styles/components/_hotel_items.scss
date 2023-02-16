@@ -1,39 +1,44 @@
 .items_container {
-  display: grid;
-  padding: 1em;
-  background-color: white;
-  border-radius: 1em;
-  box-shadow: seagreen;
-  justify-items: center;
-  grid-template-areas:
-    "images"
-    "stars"
-    "info"
-    "rooms";
+  // display: grid;
+  // grid-gap: 10px;
+  // grid-template-columns: 200px 200px 200px;
+  // grid-template-areas: "images images images";
 
-  .items_img {
-    overflow: hidden;
-    border-radius: 1em;
-    grid-area: "images";
-    margin-right: 0;
-    margin-bottom: 1em;
+  background-color: #fff;
+  color: #444;
+  // display: grid;
+  // padding: 1em;
+  // background-color: white;
+  // border-radius: 1em;
+  // justify-items: center;
+  // grid-template-areas:
+  //   "images"
+  //   "stars"
+  //   "info"
+  //   "rooms";
 
-    & img {
-      max-width: 100%;
+  .img_wrapper {
+    display: grid;
+    grid-template-columns: 16rem 1fr 1fr;
+
+    .items_img {
+      overflow: hidden;
+      border-radius: 10px;
+      margin-right: 0;
+      margin-bottom: 10px;
+
+      & img {
+        max-width: 100%;
+      }
     }
-
     .hotel_info {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      grid-area: "info";
-
-      .hotel_address {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: gray;
-      }
+      padding-inline-start: 20px;
+    }
+    .hotel_star {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 

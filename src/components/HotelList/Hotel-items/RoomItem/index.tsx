@@ -15,7 +15,7 @@ const RoomItem: FC<Props> = ({ room }) => {
           <div>{`Children: ${room.occupancy.maxChildren}`}</div>
         </div>
       </div>
-      <div>{room.longDescription}</div>
+      <div className="room_info">{room.longDescription}</div>
     </div>
   );
 };
