@@ -29,5 +29,4 @@ Guestline_API = "https://obmng.dbm.guestline.net/api/hotels?collection-id=OBMNG"
 Guestline_RoomRates_API = "https://obmng.dbm.guestline.net/api/roomRates/OBMNG"
 ```
 
-&nbsp;
-<img align="right" src="./SS/home.png" width="100%"/>
+<img align="right" src="./SS/Home.png" width="100%"/>
