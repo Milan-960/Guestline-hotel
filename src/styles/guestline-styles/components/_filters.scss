@@ -3,11 +3,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 1em;
-  gap: 1em;
-  background-color: white;
-  border-radius: 1em;
-  box-shadow: rgb(173, 170, 170);
+  gap: 1rem;
+  background-color: #d6d6d6;
+  border-radius: 10px;
   padding: 10px;
 
   .adults_counter {
@@ -15,5 +13,14 @@
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter_tool {
+    text-align: center;
+    .adults_counter {
+      display: block;
+    }
   }
 }

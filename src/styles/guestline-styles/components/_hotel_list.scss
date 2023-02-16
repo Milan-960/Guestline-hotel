@@ -6,6 +6,15 @@
   .list_hotels {
     display: grid;
     grid-auto-flow: row;
-    gap: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .list_container {
+    padding: 10px;
+
+    .list_hotels {
+      display: block;
+    }
   }
 }

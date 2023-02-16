@@ -56,3 +56,11 @@
     );
   }
 }
+
+@media (max-width: 800px) {
+  .items_container {
+    .img_wrapper {
+      display: block;
+    }
+  }
+}

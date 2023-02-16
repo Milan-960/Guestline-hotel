@@ -1,6 +1,16 @@
 .app {
+  font-size: 25px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 50%);
   height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .app {
+    display: block;
+    font-size: 10px;
+  }
 }

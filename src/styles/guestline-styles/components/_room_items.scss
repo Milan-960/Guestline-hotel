@@ -20,3 +20,13 @@
     }
   }
 }
+
+@media (max-width: 800px) {
+  .room_container {
+    display: block;
+
+    .room_info {
+      padding: 10px;
+    }
+  }
+}

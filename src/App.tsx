@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <div>
-        <div className="app">welcome to Guestline</div>
+        <div className="app">
+          <h1>welcome to Guestline</h1>
+        </div>
         <Navbar />
         <HotelList />
       </div>
