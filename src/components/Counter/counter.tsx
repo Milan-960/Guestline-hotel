@@ -1,13 +1,20 @@
-import { FC } from "react";
+import React from "react";
 
 interface Props {
+  name?: string;
   minValue?: number;
   maxValue?: number;
   value: number;
   onChange: (value: number) => void;
 }
 
-const Counter: FC<Props> = ({ value, onChange, minValue, maxValue }) => {
+const Counter: React.FC<Props> = ({
+  name,
+  value,
+  onChange,
+  minValue,
+  maxValue,
+}) => {
   const decrementCondition = minValue === undefined || minValue <= value - 1;
   const incrementCondition = maxValue === undefined || maxValue >= value + 1;
 
@@ -16,9 +23,16 @@ const Counter: FC<Props> = ({ value, onChange, minValue, maxValue }) => {
 
   return (
     <div>
-      <button onClick={decrement}>-</button>
-      <span>{value}</span>
-      <button onClick={increment}>+</button>
+      <span>{name}</span>
+      {/* // <StyledContainer> */}
+      {/* <StyledIconWrapper>
+          <MinusOutlined onClick={decrement} />
+        </StyledIconWrapper>
+        <StyledValueWrapper>{value}</StyledValueWrapper>
+        <StyledIconWrapper>
+          <PlusOutlined onClick={increment} />
+        </StyledIconWrapper>
+      </StyledContainer> */}
     </div>
   );
 };
