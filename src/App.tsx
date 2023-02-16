@@ -6,8 +6,8 @@ import "./styles/global.scss";
 function App() {
   return (
     <>
-      <div className="App">
-        welcome to Guestline
+      <div>
+        <div className="app">welcome to Guestline</div>
         <Navbar />
         <HotelList />
       </div>

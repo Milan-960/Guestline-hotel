@@ -2,9 +2,9 @@ import Hotel from "../custom-types/Hotel";
 import HotelDetails from "../custom-types/Hotel-Details";
 
 export type FilterAction =
+  | "CHANGED_RATING"
   | "CHANGED_ADULTS"
-  | "CHANGED_CHILDREN"
-  | "CHANGED_RATING";
+  | "CHANGED_CHILDREN";
 
 export type Action =
   | { type: "STARTED_LOADING" }

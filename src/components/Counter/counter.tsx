@@ -15,6 +15,7 @@ const Counter: React.FC<Props> = ({
   minValue,
   maxValue,
 }) => {
+  
   const decrementCondition = minValue === undefined || minValue <= value - 1;
   const incrementCondition = maxValue === undefined || maxValue >= value + 1;
 
@@ -22,16 +23,14 @@ const Counter: React.FC<Props> = ({
   const decrement = () => decrementCondition && onChange(value - 1);
 
   return (
-    <div>
+    <div className="counter_container">
       <span>{name}</span>
-      <div>
-        <div>
-          <button onClick={increment}> + </button>
-        </div>
+      <div className="counter_buttons">
+        <button onClick={increment}> + </button>
+
         <div>{value}</div>
-        <div>
-          <button onClick={decrement}> - </button>
-        </div>
+
+        <button onClick={decrement}> - </button>
       </div>
     </div>
   );

@@ -44,5 +44,5 @@ export const handleFilterChange =
   (actionType: FilterAction) =>
   (value: number) => {
     dispatch({ type: "STARTED_LOADING" });
-    setTimeout(() => dispatch({ type: actionType, payload: value }), 250);
+    setTimeout(() => dispatch({ type: actionType, payload: value }), 300);
   };

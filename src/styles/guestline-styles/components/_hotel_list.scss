@@ -1,0 +1,11 @@
+.list_container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 1em 1em 1em;
+
+  .list_hotels {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 1;
+  }
+}

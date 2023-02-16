@@ -6,8 +6,7 @@ const Navbar = () => {
   return (
     <div className="container">
       <img src={bannerURL} alt="hotel" className="hotel_banner" />
-      <div className="filter">
-        Filters
+      <div className="filter_navbar">
         <FiltersTool />
       </div>
     </div>

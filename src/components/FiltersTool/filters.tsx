@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { FilterAction } from "../../store/actions";
 import Counter from "../Counter/counter";
+import StarFilter from "../Star/StarFilter";
 
 const FiltersTool = () => {
   const dispatch = useAppDispatch();
@@ -10,18 +11,22 @@ const FiltersTool = () => {
     dispatch({ type: actionType, payload: value });
   };
   return (
-    <div>
-      {/* <div>{`stars:${filters.stars}`}</div> */}
-      <div>
-        <span>adults</span>
+    <div className="filter_tool">
+      <StarFilter
+        starsCount={5}
+        value={filters.rating}
+        onChange={handleChange("CHANGED_RATING")}
+      />
+      <div className="adults_counter">
+        <span>Adults</span>
         <Counter
           value={filters.adults}
           onChange={handleChange("CHANGED_ADULTS")}
           minValue={1}
         />
       </div>
-      <div>
-        <span>children</span>
+      <div className="adults_counter">
+        <span>Children</span>
         <Counter
           value={filters.children}
           onChange={handleChange("CHANGED_CHILDREN")}

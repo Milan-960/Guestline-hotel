@@ -1,33 +1,44 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 
 import { getHotels } from "../../api/index";
-
+import { FilterHotels } from "../../hooks/filter-hotels";
 import HotelItems from "./Hotel-items/hotel-items";
 
 const HotelList = () => {
-  const thunkDispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const hotels = useAppSelector((store) => store.hotels);
   const loading = useAppSelector((store) => store.loading);
-  const noHotels = !loading && hotels.length === 0;
+  const filters = useAppSelector((store) => store.filters);
 
+  // filtering the hotels based on the filters
+  const filteredHotels = FilterHotels({
+    hotels,
+    filters,
+  });
+  const noHotels = !loading && filteredHotels.length === 0;
+
+  // fetching the hotels from the api
   useEffect(() => {
-    thunkDispatch(getHotels());
-  }, [thunkDispatch]);
+    dispatch(getHotels());
+  }, [dispatch]);
 
   return (
-    <div>
+    <div className="list_container">
       {/* Here we are checking if there are any hotels available and if not we
       are rendering the message "No hotels available. */}
-      {noHotels ? (
-        <div>No hotels available.</div>
-      ) : (
-        <div>
-          {hotels.map((hotel, index) => (
-            <HotelItems key={index} hotel={hotel} />
-          ))}
-        </div>
-      )}
+      <div className="list_hotels">
+        {loading ? (
+          <div>Loading!!</div>
+        ) : (
+          <div>
+            {noHotels && <div>No hotels available.</div>}
+            {filteredHotels.map((hotel, index) => (
+              <HotelItems key={index} hotel={hotel} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

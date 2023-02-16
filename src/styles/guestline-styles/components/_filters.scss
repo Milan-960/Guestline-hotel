@@ -1,0 +1,19 @@
+.filter_tool {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  gap: 1em;
+  background-color: white;
+  border-radius: 1em;
+  box-shadow: rgb(173, 170, 170);
+  padding: 10px;
+
+  .adults_counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}

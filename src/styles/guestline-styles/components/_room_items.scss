@@ -1,0 +1,22 @@
+.room_container {
+  box-sizing: border-box;
+  padding: 2em 1em;
+  width: 100%;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+
+  .room_info {
+    display: flex;
+    flex-direction: column;
+
+    .room_name {
+      font-weight: 600;
+    }
+    .room_details {
+      padding-top: 0.25em;
+      color: #312f2f;
+      font-size: 0.8em;
+    }
+  }
+}

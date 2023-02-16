@@ -9,6 +9,7 @@ export const FilterHotels = ({
   hotels: Hotel[];
   filters: Filters;
 }) => {
+  // this is filtering by rating
   const filteredRating = filterByRating(hotels, filters.rating);
   const hotelsWithFilteredRooms = filteredRating.map((hotel) => ({
     ...hotel,
@@ -21,6 +22,8 @@ export const FilterHotels = ({
       }),
     },
   }));
+  // this is filtering by Hotels
+
   const filteredHotels = hotelsWithFilteredRooms.filter(
     (hotel) => hotel.details.rooms.length > 0
   );
